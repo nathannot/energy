@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import statsmodels
 from statsmodels.tsa.statespace.sarimax import SARIMAX
+import os 
+port = int(os.environ.get('PORT', 8501))
+
 sns.set_style('darkgrid')
 df = pd.read_csv('01 renewable-share-energy.csv')
 aus = df[df.Entity == 'Australia']
@@ -33,3 +36,7 @@ st.pyplot(fig)
 
 st.subheader('Forecast Table')
 st.write(forecast_df)
+
+if __name__ == "__main__":
+    st.set_option('server.port', port)
+    st.run()
