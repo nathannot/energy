@@ -4,7 +4,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from statsmodels.tsa.statespace.sarimax import SARIMAX
+import os
 
+port = int(os.environ.get("PORT", 8501))
+st.set_option('server.port', port)
 sns.set_style('darkgrid')
 
 # Load and prepare data
